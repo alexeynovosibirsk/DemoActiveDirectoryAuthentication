@@ -9,17 +9,23 @@ Active Directory Authentication Example
 
 Резюме: чтобы разделить контент между пользователями нужно:
 1. в CustomLdapAuthoritiesPopulator.class определить группу:
+
 if (<var>.equals(<var1>) {
+  
   authorities.add(new SimpleGrantedAuthority("role name - for example "Admin"));
   }
+  
 2. На нужную вьюшку повесить Vaadin аннотацию: 
   @Secured("ROLE_Admin")
   public class SomeView...
 3. Если хотите скрыть ссылку на недоступную вьюшку нужно в MainView.class:
   
   Router link = new RouterLink("Эта ссылка будет видна только админам", SomePageView.class);
+  
   Tab tab = createTab(link)
+  
   if(SecurityUtils.isAccessGranted(SomePageView.class)) {
+  
   addToDrawer(tab);
   }
   
