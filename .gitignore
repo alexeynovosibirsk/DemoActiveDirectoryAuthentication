@@ -3,6 +3,10 @@
 *.json
 *.js
 *.iml
+.idea
+frontend
+node_modules
+target
 
 # Log file
 *.log
